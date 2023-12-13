@@ -12,16 +12,13 @@ const TableHeader = () => {
 }
 
 const TableBody = (props) => {
-  const filas = props.propDePejes.map((fila, 
-índice) => {
+  const filas = props.propRecibidaDeTable.map((fila, 
+indice) => {
     return (
-      <tr key={índice}>
+      <tr key={indice}>
         <td>{fila.nombre}</td>
         <td>{fila.trabajo}</td>
-        <td>
-          <button onClick={() => 
-props.eliminarPersonaje(índice)}>Eliminar</button>
-        </td>
+        
       </tr>
     );
   });
@@ -33,7 +30,7 @@ const Table = (props) => {
   return (
     <table>
       <TableHeader />
-      <TableBody />
+      <TableBody propRecibidaDeTable={props.propDeAppATable}/>
     </table>
   );
 };
