@@ -12,11 +12,14 @@ class App extends Component {
    };
 
   imprimirHora = () => {
-    let hora = this.state.hora;
+    //let hora = this.state.hora;
     let fechaJS = new Date();
-    let horaAct = fechaJS.getHours();
-    let minsActs = fechaJS.getMinutes();
-    let segsActs = fechaJS.getSeconds();
+    let horaAct = fechaJS.getHours()<10? 
+'0'+fechaJS.getHours(): fechaJS.getHours();
+    let minsActs = fechaJS.getMinutes()<10? 
+'0'+fechaJS.getMinutes(): fechaJS.getMinutes();
+    let segsActs = fechaJS.getSeconds()<10? 
+'0'+fechaJS.getSeconds(): fechaJS.getSeconds();
     this.setState({
       hora: {
           horas: horaAct,
@@ -25,14 +28,23 @@ class App extends Component {
         },
     });
   }
+
+  componentDidMount() {
+    const intervalId = setInterval(this.imprimirHora, 1000);
+    this.setState({ intervalId }); // Save the interval ID for later cleanup
+  }
+
+  componentWillUnmount() {
+    if (this.state.intervalId) {
+      clearInterval(this.state.intervalId); // Clear the interval when component unmounts
+    }
+  }
   
   render() {
     
     return (
-      <div className="container">
-         <h1 
-onClick={()=>this.imprimirHora()}>{this.state.hora.horas}:{this.state.hora.minutos}:{this.state.hora.horas}</h1>
-      </div>
+      <div className="d-flex justify-content-center align-items-center"><h1
+mx-auto>{this.state.hora.horas}:{this.state.hora.minutos}:{this.state.hora.segundos}</h1></div>
     )
   }
 }
