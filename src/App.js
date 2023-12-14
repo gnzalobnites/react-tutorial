@@ -1,43 +1,37 @@
 import React, { Component } from 'react'
-import Table from './Table'
 
 class App extends Component {
-  
+  horaProp = {hora:'0000'};
   state = {
-    personajes: [
-      {
-        nombre: 'Charlie',
-        trabajo: 'Conserje',
+    hora: {
+        horas: '00',
+        minutos: '00',
+        segundos: '00',
       },
-      {
-        nombre: 'Mac',
-        trabajo: 'Portero',
-      },
-      {
-        nombre: 'Dee',
-        trabajo: 'Aspirante a actriz',
-      },
-      {
-        nombre: 'Dennis',
-        trabajo: 'Cantinero',
-      },
-     ],
+     
    };
 
-  eliminarPersonaje = (indice) => {
-    const personajes = this.state.personajes;
+  imprimirHora = () => {
+    let hora = this.state.hora;
+    let fechaJS = new Date();
+    let horaAct = fechaJS.getHours();
+    let minsActs = fechaJS.getMinutes();
+    let segsActs = fechaJS.getSeconds();
     this.setState({
-      personajes: personajes.filter((personaje, i) => {
-        return i !== indice;
-      }),
+      hora: {
+          horas: horaAct,
+          minutos: minsActs,
+          segundos: segsActs,
+        },
     });
-  };
+  }
   
   render() {
     
     return (
       <div className="container">
-        <Table propDeAppATable={this.state.personajes} eliminarATable={this.eliminarPersonaje} />
+         <h1 
+onClick={()=>this.imprimirHora()}>{this.state.hora.horas}:{this.state.hora.minutos}:{this.state.hora.horas}</h1>
       </div>
     )
   }
