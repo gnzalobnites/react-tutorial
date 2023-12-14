@@ -55,7 +55,7 @@ class App extends Component {
     
     return (
       <div className="container">
-        <Table propDeAppATable={pejes} />
+        <Table propDeAppATable={this.state.personajes} eliminarPersonaje={this.eliminarPersonaje} />
       </div>
     )
   }

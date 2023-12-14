@@ -18,7 +18,9 @@ indice) => {
       <tr key={indice}>
         <td>{fila.nombre}</td>
         <td>{fila.trabajo}</td>
-        
+        <td>
+          <button onClick={() => props.removeCharacter(indice)}>Eliminar</button>
+        </td>
       </tr>
     );
   });
@@ -30,7 +32,7 @@ const Table = (props) => {
   return (
     <table>
       <TableHeader />
-      <TableBody propRecibidaDeTable={props.propDeAppATable}/>
+      <TableBody propRecibidaDeTable={props.propDeAppATable} eliminarPersonaje={props.eliminarPersonaje} />
     </table>
   );
 };
