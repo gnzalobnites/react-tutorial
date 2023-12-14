@@ -34,28 +34,10 @@ class App extends Component {
   };
   
   render() {
-    const pejes = [
-      {
-        nombre: 'Charlie',
-        trabajo: 'Conserje',
-      },
-      {
-        nombre: 'Mac',
-        trabajo: 'Portero',
-      },
-      {
-        nombre: 'Dee',
-        trabajo: 'Aspirante a actriz',
-      },
-      {
-        nombre: 'Dennis',
-        trabajo: 'Cantinero',
-      },
-    ];
     
     return (
       <div className="container">
-        <Table propDeAppATable={this.state.personajes} eliminarPersonaje={this.eliminarPersonaje} />
+        <Table propDeAppATable={this.state.personajes} eliminarATable={this.eliminarPersonaje} />
       </div>
     )
   }
