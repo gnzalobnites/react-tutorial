@@ -8,6 +8,10 @@ class Reloj extends Component {
        minutos: '00',
        segundos: '00',
     },
+    coloresReloj: {
+       colorFuente: '#0f0',
+       colorFondo: '#000',
+    },
   };
   
   imprimirHora = () => {
@@ -19,7 +23,7 @@ class Reloj extends Component {
 '0'+fechaJS.getMinutes(): fechaJS.getMinutes();
     let segsActs = fechaJS.getSeconds()<10?
 '0'+fechaJS.getSeconds(): fechaJS.getSeconds();
-    this.setState({
+    this.props.setHora({
       hora: {
           horas: horaAct,
           minutos: minsActs,
@@ -40,10 +44,15 @@ class Reloj extends Component {
   }
 
 render() {
+    let {colorFuente, colorFondo} = 
+this.props.valores.coloresReloj;
 
     return (
-      <div className="d-flex justify-content-center align-items-center" style={{height: 90 + 'vh'}}>
-        <h1>{this.state.hora.horas}:{this.state.hora.minutos}:{this.state.hora.segundos}</h1>
+      <div className="d-flex 
+justify-content-center align-items-center" 
+style={{ height: 90 + 'vh', color: `${colorFuente}`, 
+backgroundColor: `${colorFondo}`}}>
+        <h1>{this.props.valores.hora.horas}:{this.props.valores.hora.minutos}:{this.props.valores.hora.segundos}</h1>
       </div>
     )
   }

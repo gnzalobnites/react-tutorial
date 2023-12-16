@@ -28,7 +28,10 @@ const Reloj = () => {
   }, []);
 
   return (
-    <div className="d-flex justify-content-center align-items-center" style={{ height: 90 + 'vh' }}>
+    <div className="d-flex 
+justify-content-center align-items-center" 
+style={{ height: 90 + 'vh', color: '#0f0', 
+backgroundColor: '#000'}}>
       <h1>{hora.horas}:{hora.minutos}:{hora.segundos}</h1>
     </div>
   );
