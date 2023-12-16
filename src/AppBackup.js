@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from './Table'
+import Form from './Form'
 
 class App extends Component {
   
@@ -32,12 +33,18 @@ class App extends Component {
       }),
     });
   };
+
+  handleSubmit = (personaje) => {
+    this.setState({ personajes: 
+[...this.state.personajes, personaje] });
+  };
   
   render() {
     
     return (
       <div className="container">
         <Table propDeAppATable={this.state.personajes} eliminarATable={this.eliminarPersonaje} />
+        <Form handleSubmit={this.handleSubmit} />
       </div>
     )
   }

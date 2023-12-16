@@ -43,8 +43,7 @@ class App extends Component {
   render() {
     
     return (
-      <div className="d-flex justify-content-center align-items-center"><h1
-mx-auto>{this.state.hora.horas}:{this.state.hora.minutos}:{this.state.hora.segundos}</h1></div>
+      <h1 className="">{this.state.hora.horas}:{this.state.hora.minutos}:{this.state.hora.segundos}</h1>
     )
   }
 }
