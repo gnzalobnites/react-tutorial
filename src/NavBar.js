@@ -7,8 +7,7 @@ class NavBar extends Component {
     this.props.setColores({
       coloresReloj: {
          colorFuente: colorFu,
-         colorFondo: this.props.
-   valores.coloresReloj.colorFondo,
+         colorFondo: this.props.valores.coloresReloj.colorFondo,
       },
     });
   }
